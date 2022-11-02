@@ -1,0 +1,18 @@
+<ng-container *ngIf="priceList">
+  <form #priceListForm = "ngForm" (ngSubmit)="onSubmit(priceListForm)" class="details-form">
+    <mat-form-field appearance="fill">
+      <mat-label>Price List Id</mat-label>
+      <input matInput name="id" [ngModel]="priceList.priceListID" type="number" disabled>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Price List Name</mat-label>
+      <input matInput name="name" minlength="10" appNameValidator [ngModel]="priceList.priceListName">
+      <mat-hint>At least 10 characters, no digits, no special signs</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="fill" class="ext-id-field">
+      <mat-label>Ext ID</mat-label>
+      <input matInput name="extID" [ngModel]="priceList.extErpPriceListID" type="number">
+    </mat-form-field>
+    <button type="submit" mat-raised-button color="primary" class="save-button" [disabled]="!priceListForm.valid">Save Changes</button>
+  </form>
+</ng-container>

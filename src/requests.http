@@ -1,0 +1,9 @@
+### Sign in as an existing user
+PUT https://price-list-ff325-default-rtdb.europe-west1.firebasedatabase.app/price-list/0.json
+content-type: application/json
+
+{
+    "priceListID": 0,
+    "priceListName": "My first test price list",
+    "extErpPriceListID": 1
+}

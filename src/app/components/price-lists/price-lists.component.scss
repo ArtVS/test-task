@@ -1,0 +1,26 @@
+table, mat-form-field {
+  width: 80vw;
+}
+td, th.mat-header-cell {
+  text-align: center !important;
+}
+
+.flexbox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  margin-top: 10vh;
+}
+tr.example-detail-row {
+  height: 0;
+}
+
+tr:not(.example-detail-row, .header-row):hover {
+  background-color: #777;
+}
+
+.example-element-detail {
+  overflow: hidden;
+}

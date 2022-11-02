@@ -1,0 +1,43 @@
+<div class="flexbox">
+
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <input matInput name="search" placeholder="Search..." value="" [(ngModel)]="dataSource.filter">
+    </mat-form-field>
+  </form>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" multiTemplateDataRows>
+    <ng-container matColumnDef="ID">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let priceList">{{ priceList.priceListID }}</td>
+    </ng-container>
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let priceList">{{ priceList.priceListName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ExtID">
+      <th mat-header-cell *matHeaderCellDef>ExtID</th>
+      <td mat-cell *matCellDef="let priceList">{{ priceList.extErpPriceListID }}</td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let priceList" [attr.colspan]="displayedColumns.length">
+
+        <div class="example-element-detail"
+             [@detailExpand]="priceList.isExpanded ? 'expanded' : 'collapsed'">
+          <ng-container *ngIf="priceList.isExpanded">
+            <app-price-list-details [priceList]="priceList"></app-price-list-details>
+          </ng-container>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns" class="header-row"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" [class.example-expanded-row]="row.isExpanded"
+        (click)="row.isExpanded = !row.isExpanded">>
+    </tr>
+
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+  </table>
+</div>
